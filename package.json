@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/architsinghal-mriirs/AnimeVerse/issues"
   },
-  "homepage": "https://github.com/architsinghal-mriirs/AnimeVerse#readme"
+  "homepage": "https://github.com/architsinghal-mriirs/AnimeVerse#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.20.0",
+    "sequelize-cli": "^6.4.1"
+  }
 }
