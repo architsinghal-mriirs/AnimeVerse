@@ -12,6 +12,17 @@ const createAnime = async (data) => {
     return anime;
 }
 
+const getAnime = async (animeId) => {
+    const anime = AnimeTable.findOne({
+        where : {
+            id : animeId
+        }
+    });
+
+    return anime;
+}
+
 module.exports = {
-    createAnime
+    createAnime,
+    getAnime
 }

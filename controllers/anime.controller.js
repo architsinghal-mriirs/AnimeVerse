@@ -10,6 +10,24 @@ const createAnime = async (req,res) => {
     });
 }
 
+const getAnime = async(req,res) => {
+    const response = await AnimeService.getAnime(req.params.id);
+    if(!response){
+        return res.json({
+            message : "Anime not found",
+            code : 404,
+            success : false
+        })
+    }
+    return res.json({
+        message : 'Successfully fetched the Anime',
+        code : 200,
+        success : true,
+        data : response
+    });
+}
+
 module.exports = {
-    createAnime
+    createAnime,
+    getAnime
 }
