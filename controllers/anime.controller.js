@@ -38,8 +38,19 @@ const deleteAnime = async (req,res) => {
 
 }
 
+const updateAnime = async (req,res) => {
+    const response = await AnimeService.updateAnime(req.params.id, req.body);
+    return res.json({
+        message : 'Successfully updated the Anime',
+        code : 200,
+        success : true,
+        data : response
+    })
+}
+
 module.exports = {
     createAnime,
     getAnime,
-    deleteAnime
+    deleteAnime,
+    updateAnime
 }

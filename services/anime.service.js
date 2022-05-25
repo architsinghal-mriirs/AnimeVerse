@@ -32,8 +32,24 @@ const deleteAnime = async(animeId) => {
     return anime;
 }
 
+const updateAnime = async(animeId, data) => {
+    const anime = await AnimeTable.update({
+        name : data.name,
+        description : data.description,
+        author : data.author,
+        studio : data.studio,
+        episodeCount : data.episodeCount,
+    },{
+    where : {
+            id : animeId
+    
+    }});
+    return anime;
+}
+
 module.exports = {
     createAnime,
     getAnime,
-    deleteAnime
+    deleteAnime,
+    updateAnime
 }
