@@ -27,7 +27,19 @@ const getAnime = async(req,res) => {
     });
 }
 
+const deleteAnime = async (req,res) => {
+    const response = await AnimeService.deleteAnime(req.params.id);
+    return res.json({
+        message : 'Successfully deleted the Anime',
+        code : 200,
+        success : true,
+        data : response
+    });
+
+}
+
 module.exports = {
     createAnime,
-    getAnime
+    getAnime,
+    deleteAnime
 }

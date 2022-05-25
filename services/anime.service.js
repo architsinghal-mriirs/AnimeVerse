@@ -1,7 +1,7 @@
 const AnimeTable = require('../models/index').Anime;
 
 const createAnime = async (data) => {
-    const anime = AnimeTable.create({
+    const anime = await AnimeTable.create({
         name : data.name,
         description : data.description,
         author : data.author,
@@ -13,7 +13,17 @@ const createAnime = async (data) => {
 }
 
 const getAnime = async (animeId) => {
-    const anime = AnimeTable.findOne({
+    const anime = await AnimeTable.findOne({
+        where : {
+            id : animeId
+        }
+    });
+
+    return anime;
+}
+
+const deleteAnime = async(animeId) => {
+    const anime = await AnimeTable.destroy({
         where : {
             id : animeId
         }
@@ -24,5 +34,6 @@ const getAnime = async (animeId) => {
 
 module.exports = {
     createAnime,
-    getAnime
+    getAnime,
+    deleteAnime
 }
